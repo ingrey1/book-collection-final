@@ -6,14 +6,15 @@ class BooksController {
   static async create(req, res) {
     try {
       const { title, about } = req.body;
-      const newBook = await Books.create(title, about);
+      const newBook = await Books.create({ title, about });
       const response = {
         statusCode: 201,
         data: newBook,
       };
       return res.json(response);
     } catch (error) {
-      return res.error(error);
+      console.error("error", error)
+      return res.json(error);
     }
   }
 
@@ -27,7 +28,7 @@ class BooksController {
       };
       return res.json(response);
     } catch (error) {
-      return res.error(error);
+      return res.json(error);
     }
   }
 }

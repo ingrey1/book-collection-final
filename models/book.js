@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Book.init(
     {
-      title: { type: DataTypes.STRING(500), required: true },
+      title: { type: DataTypes.STRING(500), required: true, unique: true },
       about: { type: DataTypes.TEXT, required: true },
       createdAt: new Date(),
-      updatedAt: new Date()
+      updatedAt: new Date(),
     },
     {
       sequelize,

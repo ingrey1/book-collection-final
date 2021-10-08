@@ -9,10 +9,10 @@ const booksValidation = {
     }),
   },
   create: {
-    body: Joi.object({
+    body: Joi.object().keys({
       title: Joi.string().min(2).max(255).required(),
       about: Joi.string().min(2).max(2550).required(),
-    }),
+    }).unknown(false),
   },
 };
 
