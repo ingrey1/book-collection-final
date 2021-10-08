@@ -19,8 +19,8 @@ class BooksController {
 
   static async getAll(req, res) {
     try {
-      // const filters = { ...req.query };
-      const allBooks = await Books.findAll();
+      const filters = { ...req.query };
+      const allBooks = await Books.findAll(filters);
       const response = {
         statusCode: 201,
         data: allBooks,
