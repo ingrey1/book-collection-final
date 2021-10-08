@@ -13,7 +13,6 @@ class BooksController {
       };
       return res.json(response);
     } catch (error) {
-      console.error("error", error)
       return res.json(error);
     }
   }
