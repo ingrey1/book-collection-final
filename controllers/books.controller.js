@@ -20,9 +20,9 @@ class BooksController {
   static async getAll(req, res) {
     try {
       const filters = { ...req.query };
-      const allBooks = await Books.findAll(filters);
+      const allBooks = await Books.findAll({where: filters});
       const response = {
-        statusCode: 201,
+        statusCode: 200,
         data: allBooks,
       };
       return res.json(response);

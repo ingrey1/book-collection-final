@@ -2,11 +2,11 @@ const { Joi } = require("express-validation");
 
 const booksValidation = {
   getAll: {
-    query: Joi.object({
+    query: Joi.object().keys({
       id: Joi.number().integer(),
       title: Joi.string(),
       about: Joi.string(),
-    }),
+    }).unknown(false),
   },
   create: {
     body: Joi.object().keys({
